@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Ergebnisse Eintragen | Leichtathletik-Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="icon" href="https://cdn.pixabay.com/photo/2014/04/02/10/54/runner-304881_1280.png">
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/index.html"><img
+                        src="https://cdn.pixabay.com/photo/2021/10/11/00/59/search-6699087_1280.png" alt="Lupe"
+                        width="50"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/index.html">Home <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Bestleistungen/index.html">Bestleistungen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Beschreibungen-Disziplinen/index.html">Informationen zu den
+                                Disziplinen</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ergebnisse
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="index.html">Ergebnisse eintragen</a>
+                                <a class="dropdown-item" href="/Ergebnisse-Übersicht/index.html">Ergebnisse anzeigen</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <h1 class="title">Ergebnisse eintragen</h1>
+
+            <p>Auf dieser Seite können Sie Ihre Wettkampfergebnisse ganz einfach erfassen.
+                Tragen Sie dazu Ihren Namen, die Disziplin, das Ergebnis sowie Ort und Datum des Wettkampfs ein.
+                Ihre Eingaben werden lokal im Browser gespeichert – es ist keine Anmeldung erforderlich.
+                So behalten Sie Ihre persönlichen Leistungen jederzeit im Blick.
+                Alle Disziplinen der Leichtathletik stehen zur Auswahl, vom Sprint bis zum Wurf.
+                Nutzen Sie die Eintragung, um Ihre sportliche Entwicklung über die Zeit zu dokumentieren.
+                Die Bedienung wurde bewusst einfach und benutzerfreundlich gestaltet.
+                Nach dem Speichern erhalten Sie direkt eine Bestätigung, dass Ihr Ergebnis erfolgreich gespeichert
+                wurde.</p>
+        </header>
+        <hr>
+
+        <form id="ergebnisForm">
+            <label>Teilnehmername:
+                <input class="inputbox" type="text" id="name" required>
+            </label><br><br>
+
+            <label>Disziplin:
+                <select class="inputbox" id="disziplin" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="100m">100m</option>
+                    <option value="200m">200m</option>
+                    <option value="400m">400m</option>
+                    <option value="800m">800m</option>
+                    <option value="1500m">1500m</option>
+                    <option value="5000m">5000m</option>
+                    <option value="10000m">10000m</option>
+                    <option value="Marathon">Marathon</option>
+                    <option value="100m Hürden">100m Hürden</option>
+                    <option value="110m Hürden">110m Hürden</option>
+                    <option value="400m Hürden">400m Hürden</option>
+                    <option value="4x100m">4x100m</option>
+                    <option value="4x400m">4x400m</option>
+                    <option value="Weitsprung">Weitsprung</option>
+                    <option value="Dreisprung">Dreisprung</option>
+                    <option value="Hochsprung">Hochsprung</option>
+                    <option value="Stabhochsprung">Stabhochsprung</option>
+                    <option value="Kugelstossen">Kugelstossen</option>
+                    <option value="Diskuswurf">Diskuswurf</option>
+                    <option value="Speerwurf">Speerwurf</option>
+                    <option value="Hammerwurf">Hammerwurf</option>
+                    <option value="Siebenkampf">Siebenkampf</option>
+                    <option value="Zehnkampf">Zehnkampf</option>
+                </select>
+            </label><br><br>
+
+            <label>Ergebnis:
+                <input class="inputbox" type="text" id="ergebnis" required>
+            </label><br><br>
+
+            <label>Wettkampfname:
+                <input class="inputbox" type="text" id="wettkampf" required>
+            </label><br><br>
+
+            <label>Datum:
+                <input class="inputbox" type="date" id="datum" required>
+            </label><br><br>
+
+            <label>Ort:
+                <input class="inputbox" type="text" id="ort" required>
+            </label><br>
+            <hr>
+
+            <button type="submit">Speichern</button>
+        </form>
+
+        <p id="meldung"></p>
+
+        <img src="https://images.pexels.com/photos/1127120/pexels-photo-1127120.jpeg" alt="Start-Leichtathletikbahn" width="500">
+
+        <footer class="footer-author">
+            <p class="author">Autor: Rafael Jungi</p>
+        </footer>
+
+        <script>
+            document.getElementById('ergebnisForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const disziplin = document.getElementById('disziplin').value;
+                const ergebnis = document.getElementById('ergebnis').value;
+                const wettkampf = document.getElementById('wettkampf').value;
+                const datum = document.getElementById('datum').value;
+                const ort = document.getElementById('ort').value;
+
+                const neuerEintrag = { name, disziplin, ergebnis, wettkampf, datum, ort };
+                const daten = JSON.parse(localStorage.getItem('ergebnisse')) || [];
+                daten.push(neuerEintrag);
+                localStorage.setItem('ergebnisse', JSON.stringify(daten));
+
+                // Text auf der Seite anzeigen
+                const meldung = document.getElementById('meldung');
+                meldung.textContent = "Ergebnis gespeichert!";
+                meldung.style.color = "green";
+
+                e.target.reset();
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>

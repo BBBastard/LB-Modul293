@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Ergebnisse Übersicht | Leichtathletik-Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link rel="icon" href="https://cdn.pixabay.com/photo/2014/04/02/10/54/runner-304881_1280.png">
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/index.html"><img
+                        src="https://cdn.pixabay.com/photo/2021/10/11/00/59/search-6699087_1280.png" alt="Lupe"
+                        width="50"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/index.html">Home <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Bestleistungen/index.html">Bestleistungen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Beschreibungen-Disziplinen/index.html">Informationen zu den
+                                Disziplinen</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ergebnisse
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/Ergebnisse-Eintragen/index.html">Ergebnisse
+                                    eintragen</a>
+                                <a class="dropdown-item" href="index.html">Ergebnisse anzeigen</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <h1 class="title">Ihre Ergebnisse</h1>
+
+            <p>Hier finden Sie eine vollständige Übersicht aller von Ihnen eingetragenen Wettkampfergebnisse.
+Die Ergebnisse sind nach Disziplin, Name, Ort und Datum strukturiert dargestellt.
+Diese Seite bietet Ihnen eine praktische Möglichkeit, Ihre Leistungen langfristig im Blick zu behalten.
+Sie können Ihre Entwicklung über die Zeit hinweg nachvollziehen und gezielt analysieren.
+Alle Daten werden lokal im Browser gespeichert – sicher und nur für Sie zugänglich.
+Neue Einträge erscheinen automatisch, sobald Sie sie über das Eingabeformular hinzufügen.
+So erhalten Sie eine transparente und aktuelle Darstellung Ihrer sportlichen Erfolge.
+Nutzen Sie die Übersicht, um persönliche Bestmarken zu identifizieren und sich neue Ziele zu setzen.
+
+</p>
+        </header>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Disziplin</th>
+                    <th>Ergebnis</th>
+                    <th>Wettkampf</th>
+                    <th>Datum</th>
+                    <th>Ort</th>
+                </tr>
+            </thead>
+
+            <tbody id="ergebnisTabelleBody">
+                <!-- Ergebnisse werden hier eingefügt -->
+            </tbody>
+            
+        </table>
+
+        <img src="https://images.pexels.com/photos/163444/sport-treadmill-tor-route-163444.jpeg" alt="Leichtathletikbahn-Nebel" width="500">
+
+        <footer class="footer-author">
+            <p class="author">Autor: Rafael Jungi</p>
+        </footer>
+
+        <script>
+            const daten = JSON.parse(localStorage.getItem('ergebnisse')) || [];
+            const tabelle = document.getElementById('ergebnisTabelleBody');
+
+            daten.forEach(eintrag => {
+                const zeile = document.createElement('tr');
+                zeile.innerHTML = `
+                <td>${eintrag.name}</td>
+                <td>${eintrag.disziplin}</td>
+                <td>${eintrag.ergebnis}</td>
+                <td>${eintrag.wettkampf}</td>
+                <td>${eintrag.datum}</td>
+                <td>${eintrag.ort}</td>
+    `;
+                tabelle.appendChild(zeile);
+            });
+
+        </script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>
