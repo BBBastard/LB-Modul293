@@ -1,0 +1,32 @@
+h1 {
+    padding: 5%;
+}
+
+.author {
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+#MainHomepage {
+    padding-right: 20%;
+}
+
+.ContentDescriptions {
+    display: flex;
+    gap: 5%;
+    height: 70vh;
+}
+
+#MainDescriptions {
+    flex: 3;
+    overflow-y: auto;
+}
+
+#AsideDescriptions {
+    flex: 1;
+}
+
+.title {
+    padding: 2%;
+}
+
