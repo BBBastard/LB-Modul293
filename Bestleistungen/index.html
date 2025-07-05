@@ -92,50 +92,46 @@
         </footer>
 
         <script>
-            // Disziplinen, bei denen die Zeit kleiner besser ist (Laufzeiten)
             const zeitDisziplinen = [
                 "100m", "200m", "400m", "800m", "1500m", "5000m", "10000m",
                 "Marathon", "100m Hürden", "110m Hürden", "400m Hürden", "4x100m", "4x400m"
             ];
 
-            // Disziplinen, bei denen die Distanz höher besser ist
             const distanzDisziplinen = [
                 "Weitsprung", "Dreisprung", "Hochsprung", "Stabhochsprung",
                 "Kugelstossen", "Diskuswurf", "Speerwurf", "Hammerwurf"
             ];
 
-            // Funktion zum Parsen des Ergebnisses (z.B. Zeit in Sekunden oder Distanz in Meter)
             function parseErgebnis(ergebnis, disziplin) {
-                // Für Zeitwerte wird angenommen, dass die Eingabe im Format "mm:ss.ss" oder "ss.ss" erfolgt.
                 if (zeitDisziplinen.includes(disziplin)) {
-                    // Zeit in Sekunden umrechnen
+                   
                     const parts = ergebnis.split(':');
                     if (parts.length === 2) {
-                        // Minuten:Sekunden
+                      
                         return parseFloat(parts[0]) * 60 + parseFloat(parts[1]);
                     } else {
-                        // Nur Sekunden
+                        
                         return parseFloat(ergebnis);
                     }
                 } else if (distanzDisziplinen.includes(disziplin)) {
-                    // Distanz als Zahl interpretieren
+                    
                     return parseFloat(ergebnis.replace(',', '.'));
                 } else {
-                    // Für Mehrkämpfe oder andere: Wert nicht interpretieren
+                   
                     return null;
                 }
             }
 
-            // Lade Ergebnisse aus LocalStorage
+          
             const daten = JSON.parse(localStorage.getItem('ergebnisse')) || [];
 
-            // Objekt für beste Leistungen: key = Disziplin, value = Eintrag
+           
             const besteLeistungen = {};
 
             daten.forEach(eintrag => {
                 const wert = parseErgebnis(eintrag.ergebnis, eintrag.disziplin);
-                if (wert === null || isNaN(wert)) return; // ungültiger Wert überspringen
-
+                if (wert === null || isNaN(wert)) return;
+                
                 if (!(eintrag.disziplin in besteLeistungen)) {
                     besteLeistungen[eintrag.disziplin] = { eintrag, wert };
                 } else {
@@ -154,7 +150,7 @@
                 }
             });
 
-            // Tabelle füllen
+           
             const tbody = document.querySelector('.bestleistungenTabelleBody');
             tbody.innerHTML = '';
 
@@ -171,7 +167,7 @@
                 tbody.appendChild(tr);
             });
 
-            // Falls keine Daten vorhanden sind
+            
             if (tbody.children.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="6">Keine Bestleistungen gefunden.</td></tr>';
             }
