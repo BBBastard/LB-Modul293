@@ -137,12 +137,12 @@
                 } else {
                     const aktuell = besteLeistungen[eintrag.disziplin];
                     if (zeitDisziplinen.includes(eintrag.disziplin)) {
-                        // Zeit: kleiner ist besser
+                       
                         if (wert < aktuell.wert) {
                             besteLeistungen[eintrag.disziplin] = { eintrag, wert };
                         }
                     } else if (distanzDisziplinen.includes(eintrag.disziplin)) {
-                        // Distanz: größer ist besser
+                       
                         if (wert > aktuell.wert) {
                             besteLeistungen[eintrag.disziplin] = { eintrag, wert };
                         }
